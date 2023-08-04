@@ -26,3 +26,19 @@ def queens(n, i=0, a=[], b=[], c=[]):
                 yield from queens(n, i + 1, a + [j], b + [i + j], c + [i - j])
     else:
         yield a
+
+
+def solve(n):
+    """ solve """
+    k = []
+    i = 0
+    for solution in queens(n, 0):
+        for s in solution:
+            k.append([i, s])
+            i += 1
+        print(k)
+        k = []
+        i = 0
+
+
+solve(n)
