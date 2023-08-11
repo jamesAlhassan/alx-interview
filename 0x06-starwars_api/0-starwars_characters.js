@@ -19,7 +19,7 @@ request(urlMovie, function (error, response, body) {
   }
 });
 
-const CharRequest = (idx, url, characters, limit)=> {
+function CharRequest (idx, url, characters, limit) {
   if (idx === limit) {
     return;
   }
