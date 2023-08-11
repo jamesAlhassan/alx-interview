@@ -18,3 +18,19 @@ request(urlMovie, function (error, response, body) {
     console.log(error);
   }
 });
+
+const CharRequest = (idx, url, characters, limit)=> {
+  if (idx === limit) {
+    return;
+  }
+  request(url, function (error, response, body) {
+    if (!error) {
+      const rbody = JSON.parse(body);
+      console.log(rbody.name);
+      idx++;
+      CharRequest(idx, characters[idx], characters, limit);
+    } else {
+      console.error('error:', error);
+    }
+  });
+}
